@@ -1,0 +1,18 @@
+version: '3'
+services:
+  webapp:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - devops-global-postgres
+
+  devops-global-postgres:
+    image: "postgres:9.4"
+    container_name: "my_postgres_c"
+    ports:
+      - "54320:5432"
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: ""
+      POSTGRES_DB: "devops_test"
