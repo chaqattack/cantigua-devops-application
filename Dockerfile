@@ -6,10 +6,6 @@ COPY package.json .
 
 RUN npm install
 
-COPY wait /app
+COPY . /app
 
-RUN chmod +x /app/wait
-
-RUN /app/wait && npm run migrate-up
-
-CMD ["npm", "run", "start"]
+RUN chmod +x wait.sh
