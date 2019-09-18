@@ -17,8 +17,7 @@ services:
     environment:
       DEVOPS_TEST_PORT: "3091"
       DEVOPS_TEST_ENV: "development" 
-
-    command: ["sh", "/app/wait.sh", "devops-global-postgres:5432"]
-    command: ["npm", "run", "migrate-up", "&&", "npm", "run", "start"]
-    
+    command: ["./wait.sh", "devops-global-postgres:5432"] 
+    command: ["npm", "run", "migrate-up"] 
+    command: ["npm", "run", "start"]   
     
