@@ -2,16 +2,17 @@ FROM node:8.11-alpine
 
 WORKDIR /app
 
+ENV DEVOPS_TEST_BACKEND_NAME='devops-test-backend'
+ENV DEVOPS_TEST_ENV='development'
+ENV DEVOPS_TEST_PORT="3081"
+ENV DEVOPS_TEST_RELEASE_VERSION='0.1.0'
+
 COPY package.json .
 
 RUN npm config set strict-ssl false
 
 RUN npm install
 
-COPY wait /app
+COPY . .
 
-RUN chmod +x /app/wait
-
-RUN /app/wait && npm run migrate-up
-
-CMD ["npm", "run", "start"]
+RUN chmod +x wait.sh
