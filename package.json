@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "aws-sdk": "^2.344.0",
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "babel-polyfill": "~6.26.0",
     "babel-register": "~6.26.0",
     "bluebird": "~3.5.1",
@@ -53,17 +53,17 @@
     "cors": "^2.8.4",
     "express": "~4.16.2",
     "fs": "0.0.1-security",
-    "lodash": "~4.17.4",
+    "lodash": "^4.17.15",
     "moment-timezone": "^0.5.17",
     "object.entries": "~1.0.4",
     "path": "~0.12.7",
     "pg": "~7.4.1",
     "pg-hstore": "~2.3.2",
     "q": "^1.5.1",
-    "sequelize": "^4.37.6",
-    "sequelize-cli": "^4.0.0",
-    "winston": "~2.4.0",
-    "serve-favicon": "~2.4.5"
+    "sequelize": "^4.44.3",
+    "sequelize-cli": "^5.5.1",
+    "serve-favicon": "~2.4.5",
+    "winston": "~2.4.0"
   },
   "devDependencies": {
     "chai": "~4.1.2",
