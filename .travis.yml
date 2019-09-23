@@ -4,11 +4,9 @@ sudo: required
 services:
   - docker
 before_install:
-  - docker build -t chaqattack/devops-files-app ./devops-test-app-files
-
+  - docker build -t chaqattack/devops-users-app ./devops-test-app-users
 script:
-  - docker run -e CI=true chaqattack/devops-files-app npm run test
-
+    - docker run -e CI=true chaqattack/devops-users-app npm run test
 deploy:
   provider: elasticbeanstalk
   region: "us-east-2"
