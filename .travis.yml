@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t chaqattack/devops-files-app --build-arg AWS_ACCESS_KEY=$AWS_ACCESS_KEY --build-arg AWS_SECRET_KEY=$AWS_SECRET_KEY --build-arg AWS_USER_BUCKET_NAME=$AWS_USER_BUCKET_NAME --buld-arg AWS_REGION=$AWS_REGION --build-arg ENV=$ENV ./devops-test-app-files
+  - docker build -t chaqattack/devops-files-app --build-arg AWS_ACCESS_KEY=$AWS_ACCESS_KEY --build-arg AWS_SECRET_KEY=$AWS_SECRET_KEY --build-arg AWS_USER_BUCKET_NAME=$AWS_USER_BUCKET_NAME --build-arg AWS_REGION=$AWS_REGION --build-arg ENV=$ENV ./devops-test-app-files
   - docker build -t chaqattack/devops-users-app --build-arg DB_USERNAME=$DB_USERNAME --build-arg DB_PASSWORD=$DB_PASSWORD --build-arg DB_NAME=$DB_NAME --build-arg DB_HOST=$DB_HOST --build-arg DB_ENV=$DB_ENV ./devops-test-app-users
 
 script:
