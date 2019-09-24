@@ -8,8 +8,9 @@ before_install:
 
 script:
   - docker run -e CI=true chaqattack/devops-users-app npm run test
-  - docker tag chaqattack/devops-files-app:latest $IMAGE_REPO_URL:latest
-  - docker push $IMAGE_REPO_URL:latest
+  - docker login -u $DOCKER_HUB_USER -p DOCKER_HUB_PSW
+  - docker tag chaqattack/devops-files-app:latest 
+  - docker push chaqattack/devops-files-app
 
   
 deploy:
