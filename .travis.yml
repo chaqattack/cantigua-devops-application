@@ -8,6 +8,9 @@ before_install:
 
 script:
   - docker run -e CI=true chaqattack/devops-users-app npm run test
+  - docker tag chaqattack/devops-files-app:latest $IMAGE_REPO_URL:latest
+  - docker push $IMAGE_REPO_URL:latest
+
   
 deploy:
   provider: elasticbeanstalk
