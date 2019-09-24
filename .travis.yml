@@ -13,10 +13,10 @@ script:
 deploy:
   provider: elasticbeanstalk
   region: "us-east-2"
-  app: "DevOpsUsersAPP"
-  env: "devopsusersapp-env"
+  app: "DevOps-TestApp"
+  env: "DevopsTestapp-env"
   bucket_name: "elasticbeanstalk-us-east-2-911266112348"
-  bucket_path: "DevOpsUsersAPP"
+  bucket_path: "DevOps-TestApp"
   on:
     branch: "master"
   access_key_id: 
