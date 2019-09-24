@@ -13,8 +13,6 @@ ENV DEVOPS_TEST_DATABASE_NAME=${DB_NAME} \
     DEVOPS_TEST_DATABASE_PASSWORD=${DB_PASSWORD} 
 COPY . .
 RUN npm install
-RUN echo ${DB_USERNAME}
-RUN echo ${DB_PASSWORD}
 RUN npm run migrate-up
 ENTRYPOINT 3082
 CMD ["npm", "run", "start"]
