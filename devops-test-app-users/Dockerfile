@@ -11,8 +11,16 @@ ENV DEVOPS_TEST_DATABASE_NAME=${DB_NAME} \
     DEVOPS_TEST_ENV=${DB_ENV} \
     DEVOPS_TEST_DATABASE_USERNAME=${DB_USERNAME} \
     DEVOPS_TEST_DATABASE_PASSWORD=${DB_PASSWORD} 
-COPY . .
+WORKDIR /app
+
+COPY package.json .
+
 RUN npm install
+
+COPY . /app
+
 RUN npm run migrate-up
-ENTRYPOINT 3082
+
 CMD ["npm", "run", "start"]
+
+EXPOSE 3082
