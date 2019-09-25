@@ -1,0 +1,29 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+      {
+        "name": "devops-test-app-users",
+        "image": "chaqattack/devops-users-app",
+        "essential": true,
+        "memory": 128, 
+        "portMappings": [
+            {
+              "hostPort": 3082,
+              "containerPort": 3082
+            }
+        ]
+      },
+      {
+        "name": "devops-test-app-files",
+        "image": "chaqattack/devops-files-app",
+        "essential": true,
+        "memory": 128,
+        "portMappings": [
+          {
+            "hostPort": 3081,
+            "containerPort": 3081
+          }
+        ]
+      }
+    ]
+  }
