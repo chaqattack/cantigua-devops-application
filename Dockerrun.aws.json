@@ -9,8 +9,7 @@
         "portMappings": [
             {
               "hostPort": 3082,
-              "containerPort": 3082,
-              "protocol": "tcp"
+              "containerPort": 3082
             }
         ]
       },
@@ -22,9 +21,11 @@
         "portMappings": [
           {
             "hostPort": 3081,
-            "containerPort": 3081,
-            "protocol": "tcp"
+            "containerPort": 3081
           }
+        ],
+        "links": [
+          "devops-test-app-users"
         ]
       }
     ]
