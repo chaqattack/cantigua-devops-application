@@ -2,7 +2,7 @@
     "AWSEBDockerrunVersion": 2,
     "containerDefinitions": [
       {
-        "name": "devops-test-app-files",
+        "name": "devops-files-app",
         "image": "chaqattack/devops-files-app",
         "essential": true,
         "memory": 128,
@@ -14,7 +14,7 @@
         ]
       },
       {
-        "name": "devops-test-app-users",
+        "name": "devops-users-app",
         "image": "chaqattack/devops-users-app",
         "essential": true,
         "memory": 128, 
@@ -25,7 +25,7 @@
             }
         ],
         "links": [
-          "devops-test-app-files"
+          "devops-files-app"
         ]
       }
     ]
