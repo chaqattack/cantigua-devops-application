@@ -6,7 +6,8 @@
         "image": "chaqattack/devops-files-app",
         "environment": [
           {
-            "DB_ENV": "production"
+            "name": "DB_ENV",
+            "value": "production"
           }
         ],
         "essential": true,
@@ -23,7 +24,8 @@
         "image": "chaqattack/devops-users-app",
         "environment": [
           {
-            "ENV" : "production"
+            "name": "ENV",
+            "value" : "production"
           }
         ],
         "essential": true,
