@@ -21,7 +21,7 @@ COPY . /app
 
 RUN npm run migrate-up
 
-EXPOSE 3082
+ENTRYPOINT 3082
 
 CMD ["npm", "run", "start"]
 
