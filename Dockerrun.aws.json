@@ -9,7 +9,8 @@
         "portMappings": [
             {
               "hostPort": 3082,
-              "containerPort": 3082
+              "containerPort": 3082,
+              "protocol": "tcp"
             }
         ]
       },
@@ -21,7 +22,8 @@
         "portMappings": [
           {
             "hostPort": 3081,
-            "containerPort": 3081
+            "containerPort": 3081,
+            "protocol": "tcp"
           }
         ]
       }
