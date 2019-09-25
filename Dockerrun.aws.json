@@ -6,12 +6,7 @@
         "image": "chaqattack/devops-files-app",
         "environment": [
           {
-            "DB_NAME": "$DB_NAME",
-            "DB_HOST": "$DB_HOST",
-            "DB_ENV": "$DB_ENV",
-            "DB_PASSWORD": "$DB_PASSWORD",
-            "DB_USERNAME": "$DB_USERNAME"
-      
+            "DB_ENV": "$production"
           }
         ],
         "essential": true,
@@ -28,11 +23,7 @@
         "image": "chaqattack/devops-users-app",
         "environment": [
           {
-            "AWS_ACCESS_KEY" : "$AWS_ACCESS_KEY",
-            "AWS_SECRET_KEY" : "$AWS_SECRET_KEY",
-            "AWS_USER_BUCKET_NAME" :"$AWS_USER_BUCKET_NAME",
-            "AWS_REGION" : "$AWS_REGION",
-            "ENV" : "$ENV"
+            "ENV" : "production"
       
           }
         ],
