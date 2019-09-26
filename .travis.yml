@@ -22,15 +22,15 @@ after_success:
   
   #TAGGING LATEST
   - docker tag devops-files-app 911266112348.dkr.ecr.us-east-2.amazonaws.com/files-app:latest
-  - docker tag devops-users-app 911266112348.dkr.ecr.us-east-2.amazonaws.com/user-app:latest
+  #- docker tag devops-users-app 911266112348.dkr.ecr.us-east-2.amazonaws.com/user-app:latest
   - docker push 911266112348.dkr.ecr.us-east-2.amazonaws.com/files-app:latest
-  - docker push 911266112348.dkr.ecr.us-east-2.amazonaws.com/users-app:latest
+  #- docker push 911266112348.dkr.ecr.us-east-2.amazonaws.com/users-app:latest
 
   #TAGGIN BUILD NUMBER
-  - docker tag devops-files-app 911266112348.dkr.ecr.us-east-2.amazonaws.com/files-app:$TRAVIS_BUILD_NUMBER
-  - docker tag devops-users-app 911266112348.dkr.ecr.us-east-2.amazonaws.com/users-app:$TRAVIS_BUILD_NUMBER
-  - docker push 911266112348.dkr.ecr.us-east-2.amazonaws.com/files-app:$TRAVIS_BUILD_NUMBER
-  - docker push 911266112348.dkr.ecr.us-east-2.amazonaws.com/users-app:$TRAVIS_BUILD_NUMBER
+  #- docker tag devops-files-app 911266112348.dkr.ecr.us-east-2.amazonaws.com/files-app:$TRAVIS_BUILD_NUMBER
+  #- docker tag devops-users-app 911266112348.dkr.ecr.us-east-2.amazonaws.com/users-app:$TRAVIS_BUILD_NUMBER
+  #- docker push 911266112348.dkr.ecr.us-east-2.amazonaws.com/files-app:$TRAVIS_BUILD_NUMBER
+  #- docker push 911266112348.dkr.ecr.us-east-2.amazonaws.com/users-app:$TRAVIS_BUILD_NUMBER
   
   # PUSHING IMAGES
   ## PUSHING LATEST
