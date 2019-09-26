@@ -19,12 +19,22 @@ after_success:
   # TAGGIN IMAGES
   #- docker tag chaqattack/devops-users-app:latest chaqattack/devops-users-app
   #- docker tag chaqattack/devops-files-app:latest chaqattack/devops-files-app
-  - docker tag devops-files-app:latest 911266112348.dkr.ecr.us-east-2.amazonaws.com/cantigua-devops-test/devops-files-app:latest
-  - docker tag devops-users-app:latest 911266112348.dkr.ecr.us-east-2.amazonaws.com/cantigua-devops-test/devops-users-app:latest
-  # PUSHING IMAGES
   
+  #TAGGING LATEST
+  - docker tag devops-files-app:latest 911266112348.dkr.ecr.us-east-2.amazonaws.com/files-app:latest
+  - docker tag devops-users-app:latest 911266112348.dkr.ecr.us-east-2.amazonaws.com/user-app:latest
+  
+  #TAGGIN BUILD NUMBER
+  - docker tag devops-files-app:$TRAVIS_BUILD_NUMBER  911266112348.dkr.ecr.us-east-2.amazonaws.com/files-app:$TRAVIS_BUILD_NUMBER
+  - docker tag devops-users-app:$TRAVIS_BUILD_NUMBER  911266112348.dkr.ecr.us-east-2.amazonaws.com/users-app:$TRAVIS_BUILD_NUMBER
+
+  
+  # PUSHING IMAGES
+  ## PUSHING LATEST
   - docker push 911266112348.dkr.ecr.us-east-2.amazonaws.com/files-app:latest
   - docker push 911266112348.dkr.ecr.us-east-2.amazonaws.com/users-app:latest
+   - docker push 911266112348.dkr.ecr.us-east-2.amazonaws.com/files-app:$TRAVIS_BUILD_NUMBER
+  - docker push 911266112348.dkr.ecr.us-east-2.amazonaws.com/users-app:$TRAVIS_BUILD_NUMBER
   #- docker push chaqattack/devops-files-app
   #- docker push chaqattack/devops-users-app
 
