@@ -1,0 +1,38 @@
+version: '3'
+services:
+  
+  devops-global-postgres:
+    image: postgres:9.4
+    ports:
+      - "35432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ''
+      POSTGRES_DB: devops_test
+  
+  webapp:
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5 
+    build: .
+version: '3'
+services:
+  
+  devops-global-postgres:
+    image: postgres:9.4
+    ports:
+      - "35432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ''
+      POSTGRES_DB: devops_test
+  
+  webapp:
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5 
+    build: .
