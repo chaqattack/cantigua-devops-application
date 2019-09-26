@@ -22,8 +22,9 @@ after_success:
   - docker tag devops-files-app:latest 911266112348.dkr.ecr.us-east-2.amazonaws.com/cantigua-devops-test/devops-files-app:latest
   - docker tag devops-users-app:latest 911266112348.dkr.ecr.us-east-2.amazonaws.com/cantigua-devops-test/devops-users-app:latest
   # PUSHING IMAGES
-  - docker push 911266112348.dkr.ecr.us-east-2.amazonaws.com/cantigua-devops-test/devops-files-app:latest
-  - docker push 911266112348.dkr.ecr.us-east-2.amazonaws.com/cantigua-devops-test/devops-users-app:latest
+  
+  - docker push 911266112348.dkr.ecr.us-east-2.amazonaws.com/files-app:latest
+  - docker push 911266112348.dkr.ecr.us-east-2.amazonaws.com/users-app:latest
   #- docker push chaqattack/devops-files-app
   #- docker push chaqattack/devops-users-app
 
