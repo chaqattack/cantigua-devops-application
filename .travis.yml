@@ -15,7 +15,7 @@ after_success:
   
   - pip install --user awscli
   - export PATH=$PATH:$HOME/.local/bin 
-  - eval $(aws ecr get-login --region us-east-2)
+  - eval $(aws ecr get-login --region us-east-2 | sed s'/\-e\ none//'g)
   # TAGGIN IMAGES
   #- docker tag chaqattack/devops-users-app:latest chaqattack/devops-users-app
   #- docker tag chaqattack/devops-files-app:latest chaqattack/devops-files-app
@@ -33,7 +33,7 @@ after_success:
   ## PUSHING LATEST
   - docker push 911266112348.dkr.ecr.us-east-2.amazonaws.com/files-app:latest
   - docker push 911266112348.dkr.ecr.us-east-2.amazonaws.com/users-app:latest
-   - docker push 911266112348.dkr.ecr.us-east-2.amazonaws.com/files-app:$TRAVIS_BUILD_NUMBER
+  - docker push 911266112348.dkr.ecr.us-east-2.amazonaws.com/files-app:$TRAVIS_BUILD_NUMBER
   - docker push 911266112348.dkr.ecr.us-east-2.amazonaws.com/users-app:$TRAVIS_BUILD_NUMBER
   #- docker push chaqattack/devops-files-app
   #- docker push chaqattack/devops-users-app
