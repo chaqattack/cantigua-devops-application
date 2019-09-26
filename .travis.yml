@@ -22,8 +22,9 @@ after_success:
   
   #TAGGING LATEST
   - docker tag devops-files-app:latest 911266112348.dkr.ecr.us-east-2.amazonaws.com/files-app:latest
-  - docker tag devops-users-app:latest 911266112348.dkr.ecr.us-east-2.amazonaws.com/user-app:latest
   - docker push 911266112348.dkr.ecr.us-east-2.amazonaws.com/files-app:latest
+  
+  - docker tag devops-users-app:latest 911266112348.dkr.ecr.us-east-2.amazonaws.com/users-app:latest
   - docker push 911266112348.dkr.ecr.us-east-2.amazonaws.com/users-app:latest
 
   #TAGGIN BUILD NUMBER
