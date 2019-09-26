@@ -21,8 +21,8 @@ after_success:
   #- docker tag chaqattack/devops-files-app:latest chaqattack/devops-files-app
   
   #TAGGING LATEST
-  - docker tag devops-files-app:latest 911266112348.dkr.ecr.us-east-2.amazonaws.com/files-app:latest
-  - docker tag devops-users-app:latest 911266112348.dkr.ecr.us-east-2.amazonaws.com/user-app:latest
+  - docker tag devops-files-app 911266112348.dkr.ecr.us-east-2.amazonaws.com/files-app:latest
+  - docker tag devops-users-app 911266112348.dkr.ecr.us-east-2.amazonaws.com/user-app:latest
   - docker push 911266112348.dkr.ecr.us-east-2.amazonaws.com/files-app:latest
   - docker push 911266112348.dkr.ecr.us-east-2.amazonaws.com/users-app:latest
 
@@ -42,10 +42,10 @@ after_success:
 deploy:
   provider: elasticbeanstalk
   region: "us-east-2"
-  app: "DevOps-TestApp"
-  env: "DevopsTestapp-env"
+  app: "cantigua-devops-test-app"
+  env: "CantiguaDevopsTestApp-env"
   bucket_name: "elasticbeanstalk-us-east-2-911266112348"
-  bucket_path: "DevOps-TestApp"
+  bucket_path: "cantigua-devops-test-app"
   on:
     branch: "master"
   access_key_id: 
