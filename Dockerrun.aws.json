@@ -35,6 +35,9 @@
               "hostPort": 3082,
               "containerPort": 3082
             }
+        ],
+        "links": [
+          "devops-files-app"
         ]
       }
     ]
