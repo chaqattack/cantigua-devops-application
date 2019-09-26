@@ -2,7 +2,7 @@ const config = {
   application: {
     name: process.env.DEVOPS_TEST_BACKEND_NAME || 'devops-test-backend',
     env: process.env.DEVOPS_TEST_ENV || 'development',
-    port: parseInt(process.env.DEVOPS_TEST_PORT || 3082, 10),
+    port: parseInt(process.env.DEVOPS_TEST_PORT || 3081, 10),
     release_version: process.env.DEVOPS_TEST_RELEASE_VERSION || '0.1.0',
     start_time: Date.now(),
   },

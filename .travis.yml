@@ -3,28 +3,53 @@ services:
   - docker
 
 before_install:
-  - docker build -t chaqattack/devops-files-app --build-arg AWS_ACCESS_KEY=$AWS_ACCESS_KEY --build-arg AWS_SECRET_KEY=$AWS_SECRET_KEY --build-arg AWS_USER_BUCKET_NAME=$AWS_USER_BUCKET_NAME --build-arg AWS_REGION=$AWS_REGION --build-arg ENV=$ENV ./devops-test-app-files
-  - docker build -t chaqattack/devops-users-app --build-arg DB_USERNAME=$DB_USERNAME --build-arg DB_PASSWORD=$DB_PASSWORD --build-arg DB_NAME=$DB_NAME --build-arg DB_HOST=$DB_HOST --build-arg DB_ENV=$DB_ENV ./devops-test-app-users
+  - docker build -t devops-files-app --build-arg AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID --build-arg AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY --build-arg AWS_USER_BUCKET_NAME=$AWS_USER_BUCKET_NAME --build-arg AWS_REGION=$AWS_REGION --build-arg ENV=$ENV ./devops-test-app-files
+  - docker build -t devops-users-app --build-arg DB_USERNAME=$DB_USERNAME --build-arg DB_PASSWORD=$DB_PASSWORD --build-arg DB_NAME=$DB_NAME --build-arg DB_HOST=$DB_HOST --build-arg DB_ENV=$DB_ENV ./devops-test-app-users
 
 script:
-  - docker run -e CI=true chaqattack/devops-users-app npm run test
-  - docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PSW
-  - docker tag chaqattack/devops-files-app:latest chaqattack/devops-files-app
-  - docker push chaqattack/devops-files-app
-  - docker tag chaqattack/devops-users-app:latest chaqattack/devops-users-app
-  - docker push chaqattack/devops-users-app
+  - docker run -e CI=true devops-users-app npm run test
+  
+after_success:  
+  
+  #- docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PSW
+  
+  - pip install --user awscli
+  - export PATH=$PATH:$HOME/.local/bin 
+  - eval $(aws ecr get-login --region us-east-2 | sed s'/\-e\ none//'g)
+  # TAGGIN IMAGES
+  #- docker tag chaqattack/devops-users-app:latest chaqattack/devops-users-app
+  #- docker tag chaqattack/devops-files-app:latest chaqattack/devops-files-app
+  
+  #TAGGING LATEST
+  - docker tag devops-files-app:latest 911266112348.dkr.ecr.us-east-2.amazonaws.com/files-app:latest
+  - docker push 911266112348.dkr.ecr.us-east-2.amazonaws.com/files-app:latest
+  
+  - docker tag devops-users-app:latest 911266112348.dkr.ecr.us-east-2.amazonaws.com/users-app:latest
+  - docker push 911266112348.dkr.ecr.us-east-2.amazonaws.com/users-app:latest
+
+  #TAGGIN BUILD NUMBER
+  #- docker tag devops-files-app 911266112348.dkr.ecr.us-east-2.amazonaws.com/files-app:$TRAVIS_BUILD_NUMBER
+  #- docker tag devops-users-app 911266112348.dkr.ecr.us-east-2.amazonaws.com/users-app:$TRAVIS_BUILD_NUMBER
+  #- docker push 911266112348.dkr.ecr.us-east-2.amazonaws.com/files-app:$TRAVIS_BUILD_NUMBER
+  #- docker push 911266112348.dkr.ecr.us-east-2.amazonaws.com/users-app:$TRAVIS_BUILD_NUMBER
+  
+  # PUSHING IMAGES
+  ## PUSHING LATEST
+ 
+  #- docker push chaqattack/devops-files-app
+  #- docker push chaqattack/devops-users-app
 
   
 deploy:
   provider: elasticbeanstalk
   region: "us-east-2"
-  app: "DevOps-TestApp"
-  env: "DevopsTestapp-env"
+  app: "cantigua-devops-test-app"
+  env: "CantiguaDevopsTestApp-env"
   bucket_name: "elasticbeanstalk-us-east-2-911266112348"
-  bucket_path: "DevOps-TestApp"
+  bucket_path: "cantigua-devops-test-app"
   on:
     branch: "master"
   access_key_id: 
-    secure: "$AWS_ACCESS_KEY"
+    secure: "$AWS_ACCESS_KEY_ID"
   secret_access_key:
-    secure: "$AWS_SECRET_KEY"
+    secure: "$AWS_SECRET_ACCESS_KEY"
