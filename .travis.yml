@@ -22,9 +22,9 @@ after_success:
   
   #TAGGING LATEST
   - docker tag devops-files-app 911266112348.dkr.ecr.us-east-2.amazonaws.com/files-app:latest
-  #- docker tag devops-users-app 911266112348.dkr.ecr.us-east-2.amazonaws.com/user-app:latest
+  - docker tag devops-users-app 911266112348.dkr.ecr.us-east-2.amazonaws.com/user-app:latest
   - docker push 911266112348.dkr.ecr.us-east-2.amazonaws.com/files-app:latest
-  #- docker push 911266112348.dkr.ecr.us-east-2.amazonaws.com/users-app:latest
+  - docker push 911266112348.dkr.ecr.us-east-2.amazonaws.com/users-app:latest
 
   #TAGGIN BUILD NUMBER
   #- docker tag devops-files-app 911266112348.dkr.ecr.us-east-2.amazonaws.com/files-app:$TRAVIS_BUILD_NUMBER
@@ -49,6 +49,6 @@ deploy:
   on:
     branch: "master"
   access_key_id: 
-    secure: "$AWS_ACCESS_KEY"
+    secure: "$AWS_ACCESS_KEY_ID"
   secret_access_key:
-    secure: "$AWS_SECRET_KEY"
+    secure: "$AWS_SECRET_ACCESS_KEY"
