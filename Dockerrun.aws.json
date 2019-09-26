@@ -3,7 +3,7 @@
     "containerDefinitions": [
       {
         "name": "devops-files-app",
-        "image": "911266112348.dkr.ecr.us-east-2.amazonaws.com/files-app:latest",
+        "image": "chaqattack/devops-files-app",
         "environment": [
           {
             "name": "DB_ENV",
@@ -21,7 +21,7 @@
       },
       {
         "name": "devops-users-app",
-        "image": "911266112348.dkr.ecr.us-east-2.amazonaws.com/users-app:latest",
+        "image": "chaqattack/devops-users-app",
         "environment": [
           {
             "name": "ENV",
