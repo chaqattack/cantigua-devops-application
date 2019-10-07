@@ -1,0 +1,32 @@
+version: '3'
+services:
+  devops-global-postgres:
+    image: "postgres:9.4"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: ""
+      POSTGRES_DB: "devops_test"
+  users_app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    depends_on:
+      - devops-global-postgres
+    ports:
+      - "3082:3082"
+    command: ["./wait.sh", "devops-global-postgres:5432"] 
+    command: ["npm", "run", "migrate-up"] 
+    command: ["npm", "run", "start"]  
+  
+  #files_app:
+  #  build: ./DevOps-files-app
+  #  image: files_app
+  #  depends_on:
+  #    - devops-global-postgres
+  #  ports:
+  #    - "3081:3081"
+  #  command: ["./wait.sh", "devops-global-postgres:5432"] 
+  #  command: ["npm", "run", "migrate-up"] 
+  #  command: ["npm", "run", "start"]
