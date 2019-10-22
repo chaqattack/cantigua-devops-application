@@ -17,4 +17,4 @@ COPY . /app
 
 EXPOSE "3081"
 
-RUN chmod +x wait.sh
+RUN chmod +x wait.sh 
