@@ -44,7 +44,7 @@ deploy:
   provider: elasticbeanstalk
   region: "us-east-2"
   app: "cantigua-devops-test-app"
-  env: "CantiguaDevopsTestApp-env"
+  env: "CantiguaDevopsTestApp-env-1"
   bucket_name: "elasticbeanstalk-us-east-2-911266112348"
   bucket_path: "cantigua-devops-test-app"
   on:
